@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import useInput from "../hooks/useInput";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
-  const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count - 1);
+  const name = useInput("Justin Kim");
 
   return (
     <div>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      <p>{count}</p>
+      <input type="text" placeholder="Name" value={name} />
     </div>
   );
 };
