@@ -2,11 +2,18 @@ import React from "react";
 import useInput from "../hooks/useInput";
 
 const App = () => {
-  const name = useInput("Justin Kim");
+  const maxLengthValidator = value => !value.includes("@");
+  const [value, onInputChange] = useInput("", maxLengthValidator);
 
   return (
     <div>
-      <input type="text" placeholder="Name" value={name} />
+      <input
+        type="text"
+        placeholder="Name"
+        value={value}
+        onChange={onInputChange}
+      />
+      <p>{value}</p>
     </div>
   );
 };
